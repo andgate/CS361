@@ -1,0 +1,30 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+void swap(string& str, int i, int j)
+{
+    // Implement me!
+}
+
+void reverse(string& str, int i, int j)
+{
+    // Implement me!
+}
+
+int main()
+{
+    ifstream file("input.txt");
+    
+    while (file.good())
+    {
+        string line;
+        getline(file, line);
+        
+        if (file.eof()) break;
+        
+        // Implement me!
+    }
+
+    return 0;
+}
