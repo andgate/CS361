@@ -1,9 +1,13 @@
+/*
+	Author: Gabriel Anderson
+*/
+
 #include <iostream>
 #include <cstring>
 
 using namespace std;
 
-void permute(int n, int k, int acc[], int accSize, bool marks[]);
+void permute(int n, int k, int *acc, int accSize, bool *marks);
 
 int main(int argc, char* argv[])
 {
@@ -13,10 +17,17 @@ int main(int argc, char* argv[])
   // Heap allocate our marks and accumulator
   bool *marks = new bool[n] { false };
   int *acc = new int[k] { 0 };
+
+  // Compute and print permuations
   permute(n, k, acc, 0, marks);
   cout << endl;
+  
+  system("PAUSE");
 
-  return 0;
+  delete acc;
+  delete marks;
+
+  return EXIT_SUCCESS;
 }
 
 
@@ -42,7 +53,7 @@ void permute(int n,  int k, int *acc, int accSize, bool *marks)
     {
       marks[i] = true;
       acc[accSize] = i;
-      permute(n, k, acc, accSize+1, marks);
+      permute(n, k, acc, accSize + 1, marks);
       marks[i] = false;
     }
   }
